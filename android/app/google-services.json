@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "642037584429",
+    "project_id": "cumamesajlari-4bd11",
+    "storage_bucket": "cumamesajlari-4bd11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642037584429:android:84026112052a7035109ea4",
+        "android_client_info": {
+          "package_name": "com.hafizramiz.cumamesajlari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642037584429-i2qop38gvjccfb8kcrs8d338qmqmpfi3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXWToduKQMWkUm_hojp1QzWKDgYDjnDNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642037584429-i2qop38gvjccfb8kcrs8d338qmqmpfi3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
