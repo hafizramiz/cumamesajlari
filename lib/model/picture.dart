@@ -1,4 +1,8 @@
 class Picture{
-  final String pictureUrl;
-  Picture({required this.pictureUrl});
+   List<String>? pictureUrlList;
+   String? error;
+  Picture({ required this.pictureUrlList});
+  Picture.withError(String errorMessage) {
+    error = errorMessage;
+  }
 }

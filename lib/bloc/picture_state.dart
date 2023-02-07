@@ -2,18 +2,23 @@ part of 'picture_bloc.dart';
 
 abstract class PictureState extends Equatable {
   const PictureState();
-  List<Object> get props => [];
 }
 
 class PictureInitial extends PictureState {
 
+  List<Object?> get props => [];
 }
 
-class PictureLoadingState extends PictureState{}
-
-class PictureLoaded extends PictureState{
-  final Picture picture;
-  const PictureLoaded({required this.picture});
+class PictureLoadingState extends PictureState{
+  List<Object?> get props => [];
 }
 
-class PictureErrorState extends PictureState{}
+class PictureLoadedState extends PictureState{
+  Picture picture;
+  PictureLoadedState({required this.picture});
+  List<Object?> get props => [picture];
+}
+
+class PictureErrorState extends PictureState{
+  List<Object?> get props => [];
+}

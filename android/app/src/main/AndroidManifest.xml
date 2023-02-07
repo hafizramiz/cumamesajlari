@@ -1,9 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hafizramiz.cumamesajlari">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="cumamesajlari"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -16,6 +17,7 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
+
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
@@ -30,5 +32,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+       <meta-data
+           android:name="com.google.android.gms.ads.APPLICATION_ID"
+           android:value="ca-app-pub-6229914235416908~8134795250"/>
     </application>
 </manifest>
