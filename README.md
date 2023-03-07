@@ -10,10 +10,15 @@ Share image that you want
 
 # Used Technologies
 State Management: BLOC 
+
 Service Locator package: getit
+
 BackEnd Service: Firebase Storage 
+
 Singleton Design Pattern
+
 share_plus package
+
 path_provider package
 
 [comment]: <> (# Images <img src="https://user-images.githubusercontent.com/102408138/181803745-a7421993-ec40-4ac6-bc71-9f7cf25dbb4d.gif" width="50" height="50" />)
