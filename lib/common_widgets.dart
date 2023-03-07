@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class ErrorState extends StatelessWidget {
-  const ErrorState({
+class ErrorScreen extends StatelessWidget {
+  const ErrorScreen({
     Key? key,
   }) : super(key: key);
 
@@ -12,8 +12,8 @@ class ErrorState extends StatelessWidget {
   }
 }
 
-class LoadingState extends StatelessWidget {
-  const LoadingState({
+class LoadingScreen extends StatelessWidget {
+  const LoadingScreen({
     Key? key,
   }) : super(key: key);
 

@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     loadStaticBannedAd();
     final myBloc = BlocProvider.of<PictureBloc>(context);
-    myBloc.add(GetPictureEvent());
+    myBloc.add(GetInitialPicturesEvent(limit: 10));
     super.initState();
   }
 
@@ -53,11 +53,13 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<PictureBloc, PictureState>(
       builder: (context, state) {
         if (state is PictureInitial) {
-          return LoadingState();
+          return LoadingScreen();
         } else if (state is PictureLoadingState) {
-          return LoadingState();
+          print("Loading state calisti. Elde edilen deger: ${state.props}");
+          return LoadingScreen();
         } else if (state is PictureErrorState) {
-          return ErrorState();
+          print("Picture Error state gonderildi. Aciklama degeri: ${state.aciklama}");
+          return ErrorScreen();
         } else if (state is PictureLoadedState) {
           final myPicture = state.picture;
           List<String> pictureUrlList = myPicture.pictureUrlList!;
@@ -71,15 +73,15 @@ class _HomePageState extends State<HomePage> {
             body: SafeArea(
               child: Column(
                 children: [
-                  if (isLoaded == true)
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        width: _bannerAd.size.width.toDouble(),
-                        height: _bannerAd.size.height.toDouble(),
-                        child: AdWidget(ad: _bannerAd),
-                      ),
-                    ),
+                  // if (isLoaded == true)
+                  //   Align(
+                  //     alignment: Alignment.bottomCenter,
+                  //     child: Container(
+                  //       width: _bannerAd.size.width.toDouble(),
+                  //       height: _bannerAd.size.height.toDouble(),
+                  //       child: AdWidget(ad: _bannerAd),
+                  //     ),
+                  //   ),
                   Flexible(
                     child: GridView.builder(
                         gridDelegate:
