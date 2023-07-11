@@ -10,9 +10,8 @@ class PictureInitial extends PictureState {
 }
 
 class PictureLoadingState extends PictureState{
-  final String loading;
   List<Object?> get props => [];
-  PictureLoadingState({required this.loading});
+  PictureLoadingState();
 }
 
 class PictureLoadedState extends PictureState{
@@ -22,7 +21,6 @@ class PictureLoadedState extends PictureState{
 }
 
 class PictureErrorState extends PictureState{
-  final String aciklama;
-  PictureErrorState({required this.aciklama});
+  PictureErrorState();
   List<Object?> get props => [];
 }

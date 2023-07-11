@@ -1,7 +1,7 @@
 class Picture{
-   List<String>? pictureUrlList;
-   String? error;
-  Picture({ required this.pictureUrlList});
+  Stream<List<String>> ? pictureStreamUrlList;
+  String? error;
+  Picture({ required this.pictureStreamUrlList});
   Picture.withError(String errorMessage) {
     error = errorMessage;
   }
