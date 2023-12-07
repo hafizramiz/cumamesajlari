@@ -22,7 +22,7 @@ This Flutter app is designed for sharing images with your community, adding a to
 
 To run this app locally, follow these steps:
 
-1. Clone this repository: `git clone https://github.com/your-username/Flutter-Share-Friday-Messages.git`
+1. Clone this repository: `[git clone https://github.com/your-username/Flutter-Share-Friday-Messages.git](https://github.com/hafizramiz/cumamesajlari.git)`
 2. Navigate to the project folder: `cd Flutter-Share-Friday-Messages`
 3. Run the app: `flutter run`
 
