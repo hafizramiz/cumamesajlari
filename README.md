@@ -23,7 +23,7 @@ This Flutter app is designed for sharing images with your community, adding a to
 To run this app locally, follow these steps:
 
 1. Clone this repository: https://github.com/hafizramiz/cumamesajlari.git
-2. Navigate to the project folder: cd your-repo
+2. Navigate to the project folder:  `cd your-repo`
 3. Run the app: `flutter run`
 
 ## 📸 Screenshots
