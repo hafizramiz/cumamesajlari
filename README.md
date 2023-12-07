@@ -34,7 +34,7 @@ To run this app locally, follow these steps:
 
 ## 🤓 Author
 
-I'm Hafiz Ramiz, a passionate Mobile Developer with a love for Flutter. 
+I'm Hafiz Ramiz, a passionate Mobile Developer with a love for Flutter and Kotlin Jetpack Compose. 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/hafizramiz/) and [GitHub](https://github.com/hafizramiz).
 
 ## 🌟 Show Your Support
