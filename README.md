@@ -32,7 +32,8 @@ Include screenshots or GIFs of your app in action to give visitors a quick previ
 
 ## 🤓 Author
 
-I'm Hafiz Ramiz, a passionate Mobile Developer with a love for Flutter. Connect with me on [LinkedIn](your-linkedin-profile) and [GitHub](https://github.com/your-username).
+I'm Hafiz Ramiz, a passionate Mobile Developer with a love for Flutter. 
+Connect with me on [LinkedIn](https://www.linkedin.com/in/hafizramiz/) and [GitHub](https://github.com/hafizramiz).
 
 ## 🌟 Show Your Support
 
