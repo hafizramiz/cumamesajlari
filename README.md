@@ -28,7 +28,9 @@ To run this app locally, follow these steps:
 
 ## 📸 Screenshots
 
-Include screenshots or GIFs of your app in action to give visitors a quick preview.
+![1](https://github.com/hafizramiz/cumamesajlari/assets/102408138/9acbbd93-5a24-4640-b09b-d2505cbf2f44)
+![2](https://github.com/hafizramiz/cumamesajlari/assets/102408138/93de59a5-6f6c-4d10-8ffc-a9b789f7ab26)
+![3](https://github.com/hafizramiz/cumamesajlari/assets/102408138/1482f059-ed8c-4f76-bb1a-934fabee9728)
 
 ## 🤓 Author
 
