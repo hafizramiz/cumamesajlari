@@ -45,6 +45,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+
+
+
     // loadStaticBannedAd();
     final myBloc = BlocProvider.of<PictureBloc>(context);
     myBloc.add(GetPictureEvent());
