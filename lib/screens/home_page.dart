@@ -1,12 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cumamesajlari/bloc/picture_bloc.dart';
-import 'package:cumamesajlari/common_widgets.dart';
 import 'package:cumamesajlari/screens/picture_item.dart';
+import 'package:cumamesajlari/screens/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
+import 'package:shimmer/shimmer.dart';
 import '../model/picture.dart';
+import 'error_screen.dart';
+import 'loading_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -63,17 +66,7 @@ class _HomePageState extends State<HomePage> {
           print("Loaded State Prop degeri: ${state.props}");
           Stream<List<String>>? pictureStreamUrlList =
               myPicture.pictureStreamUrlList;
-          return Scaffold(
-            backgroundColor: Colors.white,
-            resizeToAvoidBottomInset: true,
-            appBar: AppBar(
-              title: Text(
-                "Cuma Mesajlari",
-                style: TextStyle(color: Colors.black),
-              ),
-              backgroundColor: Colors.white,
-            ),
-            body: StreamBuilder<List<String?>>(
+          return  StreamBuilder<List<String?>>(
               stream: pictureStreamUrlList,
               builder: (BuildContext context,
                   AsyncSnapshot<List<String?>> snapshot) {
@@ -87,77 +80,103 @@ class _HomePageState extends State<HomePage> {
                       child: Text("There is no internet connection"),
                     );
                   } else {
-                    List<String> pictureUrlList=snapshot.data as List<String>;
-                    return SafeArea(
-                      child: Column(
-                        children: [
-                          // if (isLoaded == true)
-                          //   Align(
-                          //     alignment: Alignment.bottomCenter,
-                          //     child: Container(
-                          //       width: _bannerAd.size.width.toDouble(),
-                          //       height: _bannerAd.size.height.toDouble(),
-                          //       child: AdWidget(ad: _bannerAd),
-                          //     ),
-                          //   ),
-                          Flexible(
-                            child: GridView.builder(
-                                gridDelegate:
-                                    const SliverGridDelegateWithMaxCrossAxisExtent(
-                                        maxCrossAxisExtent: 300,
-                                        childAspectRatio: 7 / 6,
-                                        crossAxisSpacing: 1,
-                                        mainAxisSpacing: 1),
-                                itemCount: pictureUrlList.length,
-                                itemBuilder: (BuildContext ctx, index) {
-                                  return Hero(
-                                    tag: pictureUrlList[index],
-                                    child: Material(
-                                      child: InkWell(
-                                        onTap: () {
-                                          print(MediaQuery.of(context)
-                                              .size
-                                              .height);
-                                          print(
-                                              _bannerAd.size.height.toDouble());
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      PictureItem(
-                                                          imageUrl:
-                                                              pictureUrlList[
-                                                                  index])));
-                                        },
-                                        child: CachedNetworkImage(
-                                          imageUrl: pictureUrlList[index],
-                                          imageBuilder:
-                                              (context, imageProvider) =>
-                                                  Container(
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: imageProvider,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
+                    List<String> pictureUrlList = snapshot.data as List<String>;
+
+                    return Scaffold(
+                      backgroundColor: Colors.grey[400],
+                      resizeToAvoidBottomInset: true,
+                      // appBar: AppBar(
+                      //   title: Text(
+                      //     "Cuma Mesajlari",
+                      //     style: TextStyle(color: Colors. black),
+                      //   ),
+                      //   centerTitle: true,
+                      //   backgroundColor: Colors.transparent,
+                      // ),
+                      body: SafeArea(
+                        child: Column(
+                          children: [
+                            // if (isLoaded == true)
+                            //   Align(
+                            //     alignment: Alignment.bottomCenter,
+                            //     child: Container(
+                            //       width: _bannerAd.size.width.toDouble(),
+                            //       height: _bannerAd.size.height.toDouble(),
+                            //       child: AdWidget(ad: _bannerAd),
+                            //     ),
+                            //   ),
+                            Flexible(
+                              child: GridView.builder(
+                                  gridDelegate:
+                                      const SliverGridDelegateWithMaxCrossAxisExtent(
+                                          maxCrossAxisExtent: 300,
+                                          childAspectRatio: 7 / 6,
+                                          crossAxisSpacing: 1,
+                                          mainAxisSpacing: 1),
+                                  itemCount: pictureUrlList.length,
+                                  itemBuilder: (BuildContext ctx, index) {
+                                    return Hero(
+                                      tag: pictureUrlList[index],
+                                      child: Material(
+                                        color: Colors.grey[400],
+                                        child: InkWell(
+                                          onTap: () {
+                                            print(MediaQuery.of(context)
+                                                .size
+                                                .height);
+                                            // print(
+                                            //     _bannerAd.size.height.toDouble());
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        PictureItem(
+                                                            imageUrl:
+                                                                pictureUrlList[
+                                                                    index])));
+                                          },
+                                          child: CachedNetworkImage(
+                                            imageUrl: pictureUrlList[index],
+                                            imageBuilder:
+                                                (context, imageProvider) =>
+                                                    Padding(
+                                                      padding: const EdgeInsets.all(8.0),
+                                                      child: Card(
+                                                        elevation: 10,
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius:
+                                                            BorderRadius.circular(10),
+                                                            side: const BorderSide(width: 3, color: Colors.grey)),
+                                                        child: Container(
+                                                          decoration: BoxDecoration(
+                                                            //border: Border.all(width: 2,color: Colors.grey),
+                                                            borderRadius:
+                                                                BorderRadius.circular(10),
+                                                            image: DecorationImage(
+                                                              image: imageProvider,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                            placeholder: (context, url) =>
+                                                const Center(child: BannerPlaceholder2()),
+                                            errorWidget: (context, url, error) =>
+                                                Icon(Icons.error),
                                           ),
-                                          placeholder: (context, url) =>
-                                              Center(child: LoadingScreen()),
-                                          errorWidget: (context, url, error) =>
-                                              Icon(Icons.error),
                                         ),
                                       ),
-                                    ),
-                                  );
-                                }),
-                          ),
-                        ],
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   }
                 }
               },
-            ),
           );
         } else {
           return Container();
