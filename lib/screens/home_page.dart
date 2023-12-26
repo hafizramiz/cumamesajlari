@@ -4,9 +4,8 @@ import 'package:cumamesajlari/screens/picture_item.dart';
 import 'package:cumamesajlari/screens/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:shimmer/shimmer.dart';
+import '../ad_helper.dart';
 import '../model/picture.dart';
 import 'error_screen.dart';
 import 'loading_screen.dart';
@@ -24,31 +23,28 @@ class _HomePageState extends State<HomePage> {
 
   static const AdRequest request = AdRequest();
 
-  // void loadStaticBannedAd() {
-  //   _bannerAd = BannerAd(
-  //     size: AdSize.banner,
-  //     adUnitId: AdHelper.bannerAdUnitId,
-  //     request: request,
-  //     listener: BannerAdListener(onAdLoaded: (ad) {
-  //       print("Ad loaded: ${ad.adUnitId}");
-  //       setState(() {
-  //         isLoaded = true;
-  //         print("Is Loaded Degeri: $isLoaded");
-  //       });
-  //     }, onAdFailedToLoad: (ad, err) {
-  //       print('Failed to load a banner ad: ${err.message}');
-  //       ad.dispose();
-  //     }),
-  //   );
-  //   _bannerAd..load();
-  // }
+  void loadStaticBannedAd() {
+    _bannerAd = BannerAd(
+      size: AdSize.banner,
+      adUnitId: AdHelper.bannerAdUnitId,
+      request: request,
+      listener: BannerAdListener(onAdLoaded: (ad) {
+        print("Ad loaded: ${ad.adUnitId}");
+        setState(() {
+          isLoaded = true;
+          print("Is Loaded Degeri: $isLoaded");
+        });
+      }, onAdFailedToLoad: (ad, err) {
+        print('Failed to load a banner ad: ${err.message}');
+        ad.dispose();
+      }),
+    );
+    _bannerAd..load();
+  }
 
   @override
   void initState() {
-
-
-
-    // loadStaticBannedAd();
+    loadStaticBannedAd();
     final myBloc = BlocProvider.of<PictureBloc>(context);
     myBloc.add(GetPictureEvent());
     super.initState();
@@ -88,26 +84,18 @@ class _HomePageState extends State<HomePage> {
                     return Scaffold(
                       backgroundColor: Colors.grey[400],
                       resizeToAvoidBottomInset: true,
-                      // appBar: AppBar(
-                      //   title: Text(
-                      //     "Cuma Mesajlari",
-                      //     style: TextStyle(color: Colors. black),
-                      //   ),
-                      //   centerTitle: true,
-                      //   backgroundColor: Colors.transparent,
-                      // ),
                       body: SafeArea(
                         child: Column(
                           children: [
-                            // if (isLoaded == true)
-                            //   Align(
-                            //     alignment: Alignment.bottomCenter,
-                            //     child: Container(
-                            //       width: _bannerAd.size.width.toDouble(),
-                            //       height: _bannerAd.size.height.toDouble(),
-                            //       child: AdWidget(ad: _bannerAd),
-                            //     ),
-                            //   ),
+                            if (isLoaded == true)
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  width: _bannerAd.size.width.toDouble(),
+                                  height: _bannerAd.size.height.toDouble(),
+                                  child: AdWidget(ad: _bannerAd),
+                                ),
+                              ),
                             Flexible(
                               child: GridView.builder(
                                   gridDelegate:
@@ -127,8 +115,8 @@ class _HomePageState extends State<HomePage> {
                                             print(MediaQuery.of(context)
                                                 .size
                                                 .height);
-                                            // print(
-                                            //     _bannerAd.size.height.toDouble());
+                                            print(
+                                                _bannerAd.size.height.toDouble());
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(

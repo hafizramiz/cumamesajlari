@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:cumamesajlari/core/database_process.dart';
 import 'package:cumamesajlari/model/picture.dart';

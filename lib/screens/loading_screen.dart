@@ -9,8 +9,6 @@ class LoadingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // return ExampleUiLoadingAnimation();
-    //return Center(child: CircularProgressIndicator(),);
      return LoadingListPage();
   }
 }
